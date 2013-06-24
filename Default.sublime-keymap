@@ -196,15 +196,6 @@
   { "keys": ["ctrl+c", "<"], "command": "unindent" },
   { "keys": ["alt+i"], "command": "insert", "args": {"characters": "\t" } },
   
-  // Completion
-  { "keys": ["alt+/"], "command": "auto_complete" },
-  { "keys": ["alt+/"], "command": "replace_completion_with_auto_complete", "context":
-    [
-      { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
-      { "key": "auto_complete_visible", "operator": "equal", "operand": false },
-      { "key": "setting.tab_completion", "operator": "equal", "operand": true }
-    ]
-  },
 
   // Aborter
   // Abort multiple selections
@@ -269,14 +260,29 @@
   // Other Emacs features
   { "keys": ["alt+x", "f", "f", "a", "p"], "command": "sbp_find_file_at_point" },
 
-    // Emacs style tabs
+  /* Disable this and put in own Package?
+  // Completion
+  { "keys": ["alt+/"], "command": "auto_complete" },
+  { "keys": ["alt+/"], "command": "replace_completion_with_auto_complete", "context":
+    [
+      { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
+      { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+      { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+    ]
+  },
+
+  // Emacs style tabs
+  // Disable this 
   { "keys": ["tab"], "command": "reindent",  "context": [
+    // { "key": "selector", "operator": "equal", "operand": "source.python" },
+    // { "key": "selector", "operator": "not_equal", "operand": "text.tex.latex" },
+    { "key": "setting.tab_always_indents", "operator": "equal", "operand": "true" },  
     { "key": "panel_has_focus",  "operand": false },
     { "key": "auto_complete_visible", "operand": false },
     { "key": "has_next_field", "operand": false },
     { "key": "overlay_visible", "operand": false }]
   },
-
+  */
   // Macro recording
   { "keys": ["ctrl+x", "("], "command": "toggle_record_macro" },
   { "keys": ["ctrl+x", ")"], "command": "toggle_record_macro" },
